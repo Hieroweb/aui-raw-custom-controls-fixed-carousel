@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Carousel</title>
+	<script src="http://cdn.alloyui.com/2.0.0pr5/aui/aui-min.js"></script>
+
+	<link rel="stylesheet" href="css/aui-skin-classic-all-min.css" type="text/css" media="screen" />
+
+	<style type="text/css" media="screen">
+			body {
+                font-size: 12px;
+                }
+
+                #wrapper {
+                padding: 10px;
+                }
+
+                .aui-carousel {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+				margin: 0 auto;
+                }
+
+                .aui-carousel-item {
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                display: block;
+                cursor: e-resize;
+                text-indent: -9999em;
+                }
+
+                a.aui-carousel-item {
+                cursor: pointer;
+                }
+
+                #customMenu {
+                position: relative;
+                z-index: 40;
+                }
+				
+				#customMenu li {
+			     display:inline;
+			     list-style-type:none;
+			     margin-top: -200px;
+		         }
+			.aui-carousel-menu-prev {float:left; cursor:pointer; background-image:none !important;}
+			.aui-carousel-menu-next {float:right; cursor:pointer; padding-right:130px; background-image:none !important;}
+			.aui-carousel-menu-index {background-color:#ccc}
+			
+			
+			
+                .item-link {
+                background: #EBAEAE;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                color: #5B0000;
+                font-size: 14px;
+                font-weight: bold;
+                left: 30px;
+                padding: 3px 8px;
+                position: absolute;
+                text-decoration: underline;
+                text-indent: 0;
+                top: 190px;
+                }
+
+                .item-link:hover {
+                color: #000;
+                }
+	</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<h1>Alloy - Carousel</h1>
+
+	<div id="demo">
+		<div style="background: url(img/article0.png); width: 940px; height: 253px;" class="aui-carousel-item aui-carousel-item-active">Article0</div>
+		<div style="background: url(img/article1.png); width: 940px; height: 253px;" class="aui-carousel-item">Article1</div>
+		<div style="background: url(img/article2.png); width: 940px; height: 253px;" class="aui-carousel-item">Article2</div>
+		<div style="background: url(img/article3.png); width: 940px; height: 253px;" class="aui-carousel-item">Article3</div>
+	</div>
+</div>
+
+<ul id="customMenu">
+	
+	<li class="aui-carousel-menu-prev"><img src="img/carouselButtonL.png" alt=""> </a></li>
+	<li class="aui-carousel-menu-next"><img src="img/carouselButtonR.png" alt=""> </a></li>
+    <li class="aui-carousel-menu-index">0</li>
+	<li class="aui-carousel-menu-index">1</li>
+	<li class="aui-carousel-menu-index">2</li>
+	<li class="aui-carousel-menu-index">3</li>
+</ul>
+
+ <!-- 
+<script type="text/javascript" charset="utf-8">
+
+AUI().ready('aui-carousel', function(A) {
+
+	var component = new A.Carousel(
+		{
+			intervalTime: 1,
+			contentBox: '#demo',
+			activeIndex: 0,
+			// activeIndex: 'rand',
+			height: 254,
+			width: 940
+			// nodeMenu: '#customMenu',
+			// nodeMenuItemSelector: 'li'
+		}
+	).render();
+});
+
+</script> 
+
+-->
+
+<script>
+    YUI().use(
+  'aui-carousel',
+  function (Y) {
+      new Y.Carousel(
+      {
+          activeIndex: 'rand',
+          contentBox: '#demo',
+          height: 254,
+          intervalTime: 5,
+          nodeMenu: '#customMenu',
+          nodeMenuItemSelector: 'li',
+          width: 940
+      }
+    ).render();
+  }
+);
+</script>
+
+</body>
+</html>
